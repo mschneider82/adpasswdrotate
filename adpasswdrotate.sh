@@ -34,7 +34,7 @@ for i in $(seq 1 $N)
 do
   NEW=${ORIGPASS}$i
   echo set password with suffix $i
-  echo -e "${OLD}\n${NEW}\n${NEW}" | cat #smbpasswd -s -U $U -r $REMOTEIP
+  echo -e "${OLD}\n${NEW}\n${NEW}" | smbpasswd -s -U $U -r $REMOTEIP
   if [ $? -eq 1 ] 
   then
     echo error last password was: ${OLD}
@@ -44,7 +44,7 @@ do
 done
 
 echo Set password back to your old password...
-echo -e "${NEW}\n${ORIGPASS}\n${ORIGPASS}" | cat # smbpasswd -s -U $U -r $REMOTEIP
+echo -e "${NEW}\n${ORIGPASS}\n${ORIGPASS}" | smbpasswd -s -U $U -r $REMOTEIP
 if [ $? -eq 1 ] 
   then
     echo error last password was: ${NEW}
