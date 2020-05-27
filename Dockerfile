@@ -1,6 +1,7 @@
 FROM alpine:3.9.6
 
 RUN apk add --no-cache --virtual .build-deps \
+        samba \
 	samba-common-tools \
 	bind-tools \
 	bash
