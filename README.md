@@ -5,4 +5,6 @@ this overwrites the AD password history (default 24 passwords), so you should be
 
 Feel free to summit a PR to make the code nicer.
 
+  docker run -it --rm mschneider82/adpasswdrotate:latest
+
 You can use it, but it’s at your own risk.
