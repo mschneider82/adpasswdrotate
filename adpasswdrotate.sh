@@ -13,8 +13,13 @@ fi
 
 echo Please type your AD Domainname:
 read D
-REMOTEIP=$(dig SRV +noall +additional _ldap._tcp.dc._msdcs.$D | awk '{print $5}'|head -n 1)
-if test -z $REMOTEIP; then echo Error: could not find any ips for Domainname $D ; exit 1 ; fi
+
+echo Please type your AD DNS IP, you can find this with
+echo dig SRV +noall +additional _ldap._tcp.dc._msdcs.$D
+read REMOTEIP
+
+# REMOTEIP=$(dig SRV +noall +additional _ldap._tcp.dc._msdcs.$D | awk '{print $5}'|head -n 1)
+# if test -z $REMOTEIP; then echo Error: could not find any ips for Domainname $D ; exit 1 ; fi
 
 echo Please type your username:
 read U
